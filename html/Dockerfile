@@ -1,8 +1,8 @@
-# 使用一个已有的 Nginx 镜像作为基础
-FROM nginx:latest
+# 使用一个轻量 Web 服务器 Nginx 作为基础
+FROM nginx:alpine
 
-# 将本地的 html、css 和 js 文件复制到镜像的 /usr/share/nginx/html 目录中
-ADD . /usr/share/nginx/html
+# 将本地的 html 文件夹，直接复制到 Nginx 默认的网站目录中
+COPY ./ /usr/share/nginx/html
 
 # 暴露容器的 80 端口
 EXPOSE 80
